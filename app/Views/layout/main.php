@@ -13,6 +13,10 @@
 			min-height: 100%;
 		}
 
+		body {
+			margin-bottom: 100px;
+		}
+
 		.footer {
 			position: absolute;
 			bottom: 0;
@@ -44,15 +48,19 @@
 		
 	<div class="container mt-4" id="content">
 
-	<div id="page-title" class="col-sm-12">
-		<h4>#0722 - Juan Dela Cruz</h4>
-		<hr>
-	</div>
+		<!--<div id="page-title" class="col-sm-12">
+			<h4>#0722 - Juan Dela Cruz</h4>
+			<hr>
+		</div> -->
 		<div class="row">
 			<div class="col-lg-3">
 				<div id="profile_section">
 					<div id="profile-img" class="border border-1 py-3">
 						<img class="mx-auto d-block" src="<?=base_url('assets\img\profile.png');?>" width="150">
+					</div>
+					<div id="name_section" class="mt-3">
+						<h5 class="text-center">Dan Luther Avergonzado </h5>
+						<h6 class="text-center">0722 - IT Head</h6>
 					</div>
 					<div id="profile_details" class="mt-3">
 						<ul class="list-group">
@@ -69,6 +77,7 @@
 				
 						<div class="text-center mt-3">
 							<button class="btn btn-success  w-100 d-block mb-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">TIMEOUT</button>
+							<button class="btn btn-danger  w-100 d-block mb-3">QUIT</button>
 						</div>
 					</div>
 					
@@ -82,6 +91,7 @@
 						<div class="card-body">
 							<table class="table table-striped table-hover" id="tbl_timelogs">
 								<thead>
+									<th>EMP ID</th>
 									<th>DATE</th>
 									<th>TIME-IN</th>
 									<th>TIME-OUT</th>
@@ -89,6 +99,7 @@
 								<tbody>
 									<?php foreach($logs as $log): ?>
 									<tr>
+										<td><?=$log['employee_id'];?></td>
 										<td><?=$log['created_at'];?></td>
 										<td><?=$log['timein'];?></td>
 										<td><?=$log['timeout'];?></td>
@@ -146,11 +157,11 @@
 
 	</div>
 
-	<footer class="footer">
+	<div class="footer">
       <div class="container">
         <span class="text-muted">&copy;2021 Gateway Group | Developed By: Gateway Group MIS</span>
       </div>
-    </footer>
+	</div>
 
 
     
@@ -159,8 +170,7 @@
 <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
 <script>
 	$(document).ready( function () {
-   	 	$('#tbl_timelogs').DataTable();
-		$('#tbl_tasks').DataTable();
+   	 	$('#tbl_timelogs').DataTable({searching: false});
 	});
 </script>
 </body>

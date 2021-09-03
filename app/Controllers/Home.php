@@ -3,20 +3,37 @@
 namespace App\Controllers;
 
 use App\Models\Timelog;
+use App\Models\UserSession;
+
 
 class Home extends BaseController
 {
 	private $timelog;
 
-	function __construct(){
+	function __construct()
+	{
 		$this->timelog = new Timelog();
+		$this->session = new UserSession();
+	
 	}
 
-	public function index()
+
+	function index()
 	{
-		$data['logs'] = $this->timelog->findAll('100'); 
-		return view('main', $data);
+		//limit to 10 records starting from 10th record
+		$data['logs'] = $this->timelog->where('employee_id', '0722')->findAll('4', '10'); 
+		return view('layout/main', $data);
 	}
+
+	function login()
+	{
+		return view('layout/login');
+	}
+
+
+	
+
+
 
 
 }
