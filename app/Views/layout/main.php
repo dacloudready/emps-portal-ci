@@ -59,8 +59,8 @@
 						<img class="mx-auto d-block" src="<?=base_url('assets\img\profile.png');?>" width="150">
 					</div>
 					<div id="name_section" class="mt-3">
-						<h5 class="text-center">Dan Luther Avergonzado </h5>
-						<h6 class="text-center">0722 - IT Head</h6>
+						<h5 class="text-center"><?=$user['name']?></h5>
+						<h6 class="text-center"><?="{$user['employee_id']} - {$user['position']}"?></h6>
 					</div>
 					<div id="profile_details" class="mt-3">
 						<ul class="list-group">
@@ -77,7 +77,7 @@
 				
 						<div class="text-center mt-3">
 							<button class="btn btn-success  w-100 d-block mb-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">TIMEOUT</button>
-							<button class="btn btn-danger  w-100 d-block mb-3">QUIT</button>
+							<a href="/logout" class="btn btn-danger  w-100 d-block mb-3">QUIT</a>
 						</div>
 					</div>
 					

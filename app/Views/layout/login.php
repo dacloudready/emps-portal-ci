@@ -60,7 +60,7 @@
                             <center>ENTER YOUR ID NUMBER:</center>
                         </div>
                         <div class="card-body">
-                            <form action="auth-user" method="POST">
+                            <form action="login" method="POST">
                                 <div class="p-2">
                                     <input type="text" class="form-control text-center" name="emp_id">
                                     <button type="submit" class="btn btn-success d-block w-100 mt-2">Submit</button>
